@@ -48,17 +48,14 @@ include 'include/nav.php'; ?>
     <div id="container">
       
 
-        <form action="verif.php" method="POST">
+        <form action="include/verif.php" method="POST">
             <h2>Connexion</h2>
 
             <label><b>Nom d'utilisateur</b></label>
             <input class="login" type="text" placeholder="Nom d'utilisateur" name="username" required> <br>
 
-            <label><b>Email d'utilisateur</b></label>
-            <input class="login" type="text" placeholder="Mail d'utilisateur" name="mail_user" required> <br>
-
             <label><b>Mot de passe</b></label>
-            <input class="login"  type="password" placeholder="Mot de passe" name="password_user" required><br>
+            <input class="login"  type="password" placeholder="Mot de passe" name="password" required><br>
 
             <input class="ok"type="submit" id='submit' value='LOGIN'> <br>
 
