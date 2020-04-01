@@ -4,10 +4,6 @@ require_once 'styleswitcher.php';
 include 'include/connexiondb.php';
 ?>
 
-<?php $req = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche");
-          $req ->execute();
-
-    while( $donnees = $req->fetch() ) { ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +11,12 @@ include 'include/connexiondb.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php $req = $bdd->prepare(" SELECT titre FROM Film");
+          $req ->execute();
+
+    while( $donnees = $req->fetch() ) { ?>
     <title><?= $donnees['titre'];?></title>
+    <?php } ?>
 
     <!--SLICK-->
 
@@ -51,6 +52,28 @@ include 'include/connexiondb.php';
 
 <body>
 
+<?php 
+
+        $idfilm=$_GET['id'];
+      
+      
+        $reqimg=$bdd->prepare("SELECT id_film, image FROM Film, AfficheFilm WHERE id_film=$idfilm");
+        $reqimg->execute();
+        $img=$reqimg->fetch(PDO::FETCH_OBJ);
+        
+        $reqfilms=$bdd->prepare("SELECT * FROM Film WHERE id_film=$idfilm");
+        $reqfilms->execute();
+        $films=$reqfilms->fetch(PDO::FETCH_OBJ);
+
+        $reqactorid=$bdd->prepare("SELECT Film.id_film, id_acteur FROM Film, joue WHERE Film.id_film=$idfilm");
+        $reqactorid->execute();
+        $actorid=$reqactorid->fetch(PDO::FETCH_OBJ);
+        $actorid=$actorid->id_acteur;
+        
+        $reqacteurs=$bdd->prepare("SELECT * FROM Acteur WHERE id_acteur=$actorid");
+        $reqacteurs->execute();
+        $acteurs=$reqacteurs->fetch(PDO::FETCH_OBJ); ?>
+
     <?php
     include 'include/nav.php';
     include 'include/synopsis.php';
@@ -60,7 +83,5 @@ include 'include/connexiondb.php';
     include 'include/footer.php';    
     ?>
 </body>
-
-    <?php } ?>
 
 </html>

@@ -9,7 +9,7 @@
 while( $donnees = $req->fetch() ) {
 
 ?>
-    <a href=parasite.php?id=<?= $donnees['id_film'];?>" class="versfilm">
+    <a href="parasite.php?id=<?= $donnees['id_film'];?>" class="versfilm">
         <div class="cardaxel">
             <img class="poster-img" src="<?= $donnees['image']; ?>" alt="">
             <div class="titrefilm"><?= $donnees['titre']; ?></div>

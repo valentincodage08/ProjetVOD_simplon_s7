@@ -67,6 +67,7 @@ require_once 'styleswitcher.php';
     include 'include/affiche.php';
     include 'include/parallax.php';
     include 'include/tarifs.php';
+    include 'include/contact.php';
     include 'include/footer.php';
     ?>
 
