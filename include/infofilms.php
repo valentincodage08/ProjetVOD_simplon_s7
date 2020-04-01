@@ -9,7 +9,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            2h12
+            <?= $donnees['duree'];?>
         </div>
         Durée
     </div>
@@ -17,7 +17,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            4.5/5
+        <?= $donnees['note'];?>/5
         </div>
         Note
     </div>

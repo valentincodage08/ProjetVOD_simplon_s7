@@ -1,18 +1,15 @@
 <!--CATALOGUE FILMS-->
 
-<?php
+<?php include 'connexiondb.php'; ?>
 
-include 'connexiondb.php';
-//$req = $bdd->prepare(" SELECT id_film, titre, note, duree, genre, Film.id_affiche FROM Film INNER JOIN AfficheFilm ON Film.id_affiche = AfficheFilm.image");//
-$req = $bdd->prepare(" SELECT id_film, titre, note, duree, genre, Film.id_affiche, image FROM Film, AfficheFilm");
+<div class="axeldroite">
+<?php $req = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche");
           $req ->execute();
 
 while( $donnees = $req->fetch() ) {
 
 ?>
-
-<div class="axeldroite">
-    <a href="<?php $_GET['id_film']?>" class="versfilm">
+    <a href=parasite.php?id=<?= $donnees['id_film'];?>" class="versfilm">
         <div class="cardaxel">
             <img class="poster-img" src="<?= $donnees['image']; ?>" alt="">
             <div class="titrefilm"><?= $donnees['titre']; ?></div>
@@ -24,9 +21,9 @@ while( $donnees = $req->fetch() ) {
                 </div>
             </div>
         </div>
-    </a>
-</div>
-</div>
 <?php
 } $req->closecursor();
 ?>
+    </a>
+</div>
+</div>

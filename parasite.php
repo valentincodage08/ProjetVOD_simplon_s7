@@ -1,8 +1,13 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
+include 'include/connexiondb.php';
 ?>
 
+<?php $req = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche");
+          $req ->execute();
+
+    while( $donnees = $req->fetch() ) { ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +15,7 @@ require_once 'styleswitcher.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parasite</title>
+    <title><?= $donnees['titre'];?></title>
 
     <!--SLICK-->
 
@@ -55,5 +60,7 @@ require_once 'styleswitcher.php';
     include 'include/footer.php';    
     ?>
 </body>
+
+    <?php } ?>
 
 </html>
