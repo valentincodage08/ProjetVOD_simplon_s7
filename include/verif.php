@@ -1,40 +1,82 @@
 <?php
 
+include 'connexiondb.php';
+
 $username = !empty($_POST['username']) ? $_POST['username'] : NULL;
 $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
 
-echo "au moins je suis la";
-
-
-    echo "ok";
-    echo $username;
-    echo $password;
-
     //  Récupération de l'utilisateur et de son pass hashé
-    $req = $bdd->prepare('SELECT username,password FROM user WHERE username = $username');
+    $req = $bdd->prepare("SELECT * FROM User WHERE username = :username");
     $req->execute(array(
+
         'username' => $username));
+
     $resultat = $req->fetch();
+
+        if (isset($resultat['username'])) {
+
+            if ($resultat['password']==$password) {
+
+                if ($resultat['idusertype'] == 0){
+
+                    session_start();
+                    $_SESSION['id'] = $resultat['id'];
+                    $_SESSION['pseudo'] = $pseudo;
+                    header('location: ../index.php');
+                }
+                else {
+                    session_start();
+                    $_SESSION['id'] = $resultat['id'];
+                    $_SESSION['pseudo'] = $pseudo;
+                    header('location: tabadmin.php');
+                    // Admin à rediriger après sur interface admin
+
+                }
+                
+
+            }
+            else {
+                echo "Mot de passe erroné";
+                echo "<a href='../connexion.php'>Retour à l'interface de connexion</a>";
+            }
+
+        }else {
+
+            echo "Votre mail n'est pas enregistré";
+            echo "<a href='../connexion.php'>Retour à l'interface de connexion</a>";
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     
     // Comparaison du pass envoyé via le formulaire avec la base
-    $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
+    //$isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
     
-    if (!$resultat)
-    {
-        echo 'Mauvais identifiant ou mot de passe !';
-    }
-    else
-    {
-        if ($isPasswordCorrect) {
-            session_start();
-            $_SESSION['password'] = $resultat['password'];
-            $_SESSION['username'] = $username;
-            echo 'Vous êtes connecté !';
-        }
-        else {
-            echo 'Mauvais identifiant ou mot de passe !';
-        }
-    }
+    //if (!$resultat)
+    //{
+      //  echo 'Mauvais identifiant ou mot de passe !';
+    //}
+    //else
+    //{
+      //  if ($isPasswordCorrect) {
+        //    session_start();
+          //  $_SESSION['password'] = $resultat['password'];
+            //$_SESSION['username'] = $username;
+            //echo 'Vous êtes connecté !';
+        //}
+        //else {
+            //echo 'Mauvais identifiant ou mot de passe !';
+        //}
+    //}
 
 
 ?>

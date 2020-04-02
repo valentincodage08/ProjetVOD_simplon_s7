@@ -46,7 +46,6 @@ include 'include/nav.php'; ?>
   <!-- zone de connexion -->
 
     <div id="container">
-      
 
         <form action="include/verif.php" method="POST">
             <h2>Connexion</h2>
