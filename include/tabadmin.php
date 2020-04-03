@@ -107,9 +107,9 @@ $req = $bdd->prepare("SELECT * FROM User");
     <fieldset>
       <input  name="duree" type="time" min="00:00:00" tabindex="5">
     </fieldset>
-    <!-- <fieldset>
+    <fieldset>
     <input placeholder="Url de l'image du film" name="image" type="text" tabindex="6">
-    </fieldset> -->
+    </fieldset>
     <fieldset>
       <button type="submit" value="submit">Valider</button>
     </fieldset>
