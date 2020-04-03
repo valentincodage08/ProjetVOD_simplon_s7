@@ -25,7 +25,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            5 juin 2019
+        <?= $films->date_sortie;?>
         </div>
         Date de sortie
     </div>

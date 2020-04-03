@@ -4,25 +4,39 @@
 
 <div class="real-ba">
 
+<?php 
 
+include 'connexiondb.php';
+
+$req=$bdd->prepare("SELECT r.photo, r.nom, r.prenom, r.realisateur_id, r.description, rr.realisateur_id, rr.id_film FROM Realisateur r, Realise rr WHERE rr.id_film = $idfilm AND r.realisateur_id = rr.realisateur_id");
+$req->execute(); 
+
+while( $donnees = $req->fetch() ) { ?>
     
 
     <div class="real">
         <div class="img-real">
-            <img src="./img/real.jfif" alt="">
-            <div>Bong Joon Ho</div>
+            <img src="<?= $donnees['photo'];?>" alt="">
+            <div><?= $donnees['prenom'];?> <?= $donnees['nom'];?></div>
         </div>
         <div class="text-real">
-            Pour son film Parasite, il remporte la Palme d'or au festival de Cannes 2019, puis en 2020, le prix du
-            meilleur film en langue étrangère aux Golden Globes, quatre Oscars (meilleur scénario original, meilleur
-            film international, meilleur réalisateur, et meilleur film) et le César du meilleur film étranger.
+        <?= $donnees['description'];?>
         </div>
     </div>
 
+<?php } ?>
+
+<?php 
+
+$reqba = $bdd->prepare("SELECT ba FROM Film WHERE id_film = '$idfilm'");
+$reqba->execute(); 
+
+while( $donnees = $reqba->fetch() ) { ?>
+
     <div class="ba-yt">
-        <iframe width="400" height="250" src="https://www.youtube.com/embed/BboKKBYx7-0" frameborder="0"
+        <iframe width="400" height="250" src="<?= $donnees['ba'];?>" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
-
+    <?php } ?>
 </div>

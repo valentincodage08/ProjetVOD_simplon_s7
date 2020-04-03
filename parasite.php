@@ -57,7 +57,7 @@ include 'include/connexiondb.php';
         $idfilm=$_GET['id'];
       
       
-        $reqimg=$bdd->prepare("SELECT id_film, image FROM Film, AfficheFilm WHERE id_film=$idfilm");
+        $reqimg=$bdd->prepare("SELECT id_film, image FROM Film, AfficheFilm WHERE id_film=$idfilm AND AfficheFilm.id_affiche = Film.id_affiche");
         $reqimg->execute();
         $img=$reqimg->fetch(PDO::FETCH_OBJ);
         
@@ -65,16 +65,6 @@ include 'include/connexiondb.php';
         $reqfilms->execute();
         $films=$reqfilms->fetch(PDO::FETCH_OBJ);
 
-        $reqactorid=$bdd->prepare("SELECT Film.id_film, id_acteur FROM Film, joue WHERE Film.id_film=$idfilm");
-        $reqactorid->execute();
-        $actorid=$reqactorid->fetch(PDO::FETCH_OBJ);
-        $actorid=$actorid->id_acteur;
-        
-        $reqacteurs=$bdd->prepare("SELECT * FROM Acteur WHERE id_acteur=$actorid");
-        $reqacteurs->execute();
-        $acteurs=$reqacteurs->fetch(PDO::FETCH_OBJ); ?>
-
-    <?php
     include 'include/nav.php';
     include 'include/synopsis.php';
     include 'include/infofilms.php';

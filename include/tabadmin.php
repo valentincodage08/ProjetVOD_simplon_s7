@@ -91,7 +91,7 @@ $req = $bdd->prepare("SELECT * FROM User");
 </table>
 
 <h3><center>Ajouter un film</center></h3>
-<form action="ajoutfilmadmin.php">
+<form action="ajoutfilmadmin.php" method="post">
     <fieldset>
       <input placeholder="Titre" name="titre" type="text" tabindex="1" autofocus>
     </fieldset>
@@ -107,9 +107,9 @@ $req = $bdd->prepare("SELECT * FROM User");
     <fieldset>
       <input  name="duree" type="time" min="00:00:00" tabindex="5">
     </fieldset>
-    <fieldset>
+    <!-- <fieldset>
     <input placeholder="Url de l'image du film" name="image" type="text" tabindex="6">
-    </fieldset>
+    </fieldset> -->
     <fieldset>
       <button type="submit" value="submit">Valider</button>
     </fieldset>
