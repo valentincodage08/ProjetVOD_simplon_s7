@@ -30,7 +30,7 @@
 
 
 
-                    <form action="">
+                    <form action="include/searchfilms.php">
                         <input type="text" placeholder="" name="search">
                         <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -57,7 +57,7 @@
         <h1><a class="lien-home" href="index.php">ALLO SIMPLON</a> </h1>
     </div>
     <div class="menu-nav">
-        <form class="search-bar" action="">
+        <form class="search-bar" action="include/searchfilms.php">
             <input type="text" placeholder="" name="search">
             <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
         </form>
