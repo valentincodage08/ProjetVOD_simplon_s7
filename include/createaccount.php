@@ -1,9 +1,3 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
-require_once 'styleswitcher.php';
-include 'connexiondb.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,50 +57,28 @@ include 'connexiondb.php';
 </head>
 
 <body>
-    <?php
-    include 'include/nav.php';
-    include 'include/slider.php';
-    include 'include/affiche.php';
-    include 'include/parallax.php';
-    include 'include/tarifs.php';
-    include 'include/contact.php';
-    include 'include/footer.php';
-    ?>
 
+<h3><center>Créer un compte</center></h3>
+<form action="createuseracc.php" method="post">
+    <fieldset>
+      <input placeholder="Nom de compte" name="username" type="text" tabindex="1" autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Mot de passe" name="password" type="password" tabindex="2">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Nom" name="nom" type="text" tabindex="3">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Prénom" name="prenom" type="text" tabindex="4">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Adresse" name="adresse" type="text" tabindex="4">
+    </fieldset>
+    <fieldset>
+      <button type="submit" value="submit">Valider</button>
+    </fieldset>
+</form>
 
-    <script type="text/javascript" src="slick\slick\slick.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('.center').slick({
-                dots: true,
-                autoplay: true,
-                arrows: true,
-                centerMode: true,
-                centerPadding: '60px',
-                slidesToShow: 3,
-                responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 </body>
-
 </html>

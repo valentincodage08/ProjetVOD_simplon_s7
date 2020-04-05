@@ -63,6 +63,14 @@
         </form>
         <div class="menu-dada">
             <ul>
+            <?php 
+                        if(isset($_SESSION['username'])){
+                            echo "Bonjour, ".$_SESSION['username'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
+                        } 
+
+                        else {
+                            echo "Vous n'êtes pas connecté.";
+                        }?>
 
                 <li>
                     <div class="style_axel"><a href="<?php echo $actuel; ?>?style=axel/index4.css"></a>

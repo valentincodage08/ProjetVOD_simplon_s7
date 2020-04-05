@@ -20,20 +20,18 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
                 if ($resultat['idusertype'] == 0){
 
                     session_start();
-                    $_SESSION['id'] = $resultat['id'];
-                    $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['username'] = $username;
                     header('location: ../index.php');
                 }
                 else {
+
                     session_start();
-                    $_SESSION['id'] = $resultat['id'];
-                    $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['username'] = $username;
                     header('location: tabadmin.php');
                     // Admin à rediriger après sur interface admin
 
                 }
                 
-
             }
             else {
                 echo "Mot de passe erroné";
@@ -46,37 +44,5 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
             echo "<a href='../connexion.php'>Retour à l'interface de connexion</a>";
 
         }
-
-
-
-
-
-
-
-
-
-
-
-    
-    // Comparaison du pass envoyé via le formulaire avec la base
-    //$isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
-    
-    //if (!$resultat)
-    //{
-      //  echo 'Mauvais identifiant ou mot de passe !';
-    //}
-    //else
-    //{
-      //  if ($isPasswordCorrect) {
-        //    session_start();
-          //  $_SESSION['password'] = $resultat['password'];
-            //$_SESSION['username'] = $username;
-            //echo 'Vous êtes connecté !';
-        //}
-        //else {
-            //echo 'Mauvais identifiant ou mot de passe !';
-        //}
-    //}
-
 
 ?>

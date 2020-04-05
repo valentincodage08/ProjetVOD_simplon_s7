@@ -68,7 +68,8 @@ include 'include/nav.php'; ?>
             ?> 
 
 
-        </form>
+        </form><br>
+        <a href="include/createaccount.php">S'inscrire</a>
     </div>
 
 

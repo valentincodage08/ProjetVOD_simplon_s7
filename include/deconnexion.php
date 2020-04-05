@@ -1,8 +1,12 @@
 <?php 
 session_start();
 
-// Suppression des variables de session et de la session
 $_SESSION = array();
 session_destroy();
+
+echo "Vous êtes à présent déconnecté.";
+echo "<a href='../index.php'>Retour à l'accueil</a>";
+    
+header("location:../index.php");
 
 ?>

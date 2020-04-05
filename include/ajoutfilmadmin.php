@@ -16,8 +16,6 @@ $reqimg->closecursor();
 
 $last_id = $bdd->lastInsertId();
 
-echo $last_id;
-
 $reqfilm = $bdd->prepare("INSERT INTO Film (titre, synopsis, genre, note, duree, id_affiche)
                                   VALUES ( :titre, :synopsis, :genre, :note, :duree, :id_affiche)");
 $reqfilm->execute(array(
