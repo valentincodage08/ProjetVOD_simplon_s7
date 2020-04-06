@@ -6,12 +6,13 @@
 
 <?php
 
+session_start();
 include 'connexiondb.php';
 
 $userid = $_GET['id'];?>
 
 <div class="container">
-  <form id="contact" action="updateuserfromadmintraitement.php?id=<?= $userid;?>" method="post">
+  <form id="contact" action="updateuseraccount.php?id=<?= $userid;?>" method="post">
     <h3><center>Modification Users</center></h3>
     <fieldset>
       <input placeholder="Username" name="username" type="text" tabindex="1" autofocus>

@@ -63,14 +63,7 @@
         </form>
         <div class="menu-dada">
             <ul>
-            <?php 
-                        if(isset($_SESSION['username'])){
-                            echo "Bonjour, ".$_SESSION['username'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
-                        } 
 
-                        else {
-                            echo "Vous n'êtes pas connecté.";
-                        }?>
 
                 <li>
                     <div class="style_axel"><a href="<?php echo $actuel; ?>?style=axel/index4.css"></a>
@@ -86,7 +79,15 @@
                     <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
                 </li>
                 <li><a href="catalogue.php">Films</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+            <?php 
+                        if(isset($_SESSION['username'])){
+                            echo "Bonjour, ".$_SESSION['username'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
+                        } 
+                        else {
+                            echo "<li><a href='createaccount.php'>Inscription</a></li>";
+                            echo "<li><a href='connexion.php'>Connexion</a></li>";
+                        }?>
+                        
             </ul>
         </div>
     </div>
