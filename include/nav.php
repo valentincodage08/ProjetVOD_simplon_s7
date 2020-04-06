@@ -84,7 +84,7 @@
                             echo "Bonjour, ".$_SESSION['username'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
                         } 
                         else {
-                            echo "<li><a href='createaccount.php'>Inscription</a></li>";
+                            echo "<li><a href='include/createaccount.php'>Inscription</a></li>";
                             echo "<li><a href='connexion.php'>Connexion</a></li>";
                         }?>
                         

@@ -27,5 +27,5 @@ $reqfilm->execute(array(
     ':id_affiche' => $last_id
 ));
 $reqfilm->closecursor();
-header('Location: include/tabadmin.php');
+header('Location: tabadmin.php');
 ?>

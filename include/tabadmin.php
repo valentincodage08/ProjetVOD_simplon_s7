@@ -87,6 +87,7 @@ $req = $bdd->prepare("SELECT * FROM User");
 
 <?php
 }
+$req->closecursor();
 ?>
 </table>
 
