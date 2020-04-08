@@ -1,6 +1,7 @@
 <html>
 <head>
-<link rel="stylesheet" href="styleforms.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
@@ -19,26 +20,37 @@ $req = $bdd->prepare("SELECT * FROM User WHERE id_user=$userid");
 
 ?>
 
-<div class="container">
-  <form id="contact" action="updateuserfromadmintraitement.php?id=<?= $userid;?>" method="post">
-    <h3><center>Modification Users</center></h3>
-    <fieldset>
-      <input placeholder="Nom utilisateur" name="username" type="text" tabindex="1" autofocus value="<?= $donnees['username'];?>">
-    </fieldset>
-    <fieldset>
-      <input placeholder="Nom" name="nom" type="text" tabindex="2" value="<?= $donnees['nom'];?>">
-    </fieldset>
-    <fieldset>
-      <input placeholder="Prénom" name="prenom" type="text" tabindex="3" value="<?= $donnees['prenom'];?>">
-    </fieldset>
-    <fieldset>
-      <input placeholder="Adresse" name="adresse" type="text" tabindex="4" value="<?= $donnees['adresse'];?>">
-    </fieldset>
-    <fieldset>
-      <button type="submit" value="submit">Modifier</button>
-    </fieldset>
-  </form>
-</div>
+ 
+<h3 class="font-weight-light text-black-50 mt-4 mb-5">
+    <center>Modifier le profil de l'utilisateur <?= $donnees['username'];?></center>
+  </h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <form action="updateuserfromadmintraitement.php?id=<?= $userid;?>" method="post">
+          <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <input type="text" class="form-control" name="username" tabindex="1" autofocus value="<?= $donnees['username'];?>">
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" class="form-control" name="nom" tabindex="2" value="<?= $donnees['nom'];?>">
+          </div>
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" class="form-control" name="prenom" tabindex="3" value="<?= $donnees['prenom'];?>">
+          </div>
+          <div class="form-group">
+            <label>Adresse</label>
+            <input type="text" class="form-control" name="adresse" tabindex="4" value="<?= $donnees['adresse'];?>">
+          </div>
+          <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Modifier</button></center>
+        </form>
+      </div>
+    </div>
+  </div>
 
 <?php
 }
