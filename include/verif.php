@@ -20,14 +20,14 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
                 if ($resultat['idusertype'] == 0){
 
                     session_start();
-                    $_SESSION['username'] = $username;
+                    $_SESSION['prenom'] = $resultat['prenom'];
                     $_SESSION['type'] = $resultat['idusertype'];
-                    header('location: tabadmin.php');
+                    header('location: ../index.php');
                 }
                 else {
 
                     session_start();
-                    $_SESSION['username'] = $username;
+                    $_SESSION['prenom'] = $resultat['prenom'];
                     $_SESSION['type'] = $resultat['idusertype'];
                     header('location: tabadmin.php');
                 }

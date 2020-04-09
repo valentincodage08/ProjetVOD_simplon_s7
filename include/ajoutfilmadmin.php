@@ -31,6 +31,5 @@ $reqfilm->execute(array(
     ':date_sortie' => $date_sortie
 ));
 $reqfilm->closecursor();
-$last_id = $bdd->lastInsertId();
-header('Location: insertacteurstofilms.php');
+header("Location: insertacteurstofilms.php");
 ?>

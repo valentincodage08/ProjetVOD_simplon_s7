@@ -1,7 +1,8 @@
 <?php
 
 include 'connexiondb.php';
-include 'nav.php';
-include 'footer.php';
+
+echo $tst;
+echo "coucou";
 
 ?>

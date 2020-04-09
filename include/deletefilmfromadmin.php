@@ -2,9 +2,9 @@
 
 include 'connexiondb.php';
 
-$userid = $_GET['id'];
+$idfilm = $_GET['id'];
 
-$req = $bdd->prepare(" DELETE FROM User WHERE id_user = $userid");
+$req = $bdd->prepare(" DELETE FROM Film WHERE id_film = $idfilm");
           $req ->execute();
 
           $req->closecursor();

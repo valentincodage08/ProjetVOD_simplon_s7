@@ -7,5 +7,5 @@
     <input name="firstname" type="text" placeholder="Prénom" style="margin-bottom: 15px;"><br>
     <input name="email" type="email" placeholder="Adresse mail" style="margin-bottom: 15px;">
     <input name="message" placeholder="retest" style="height: 80px; width: 250px; margin-bottom: 20px;">
-    <button class="formbtn" type="submit" style="border: 5px solid #DAF7A6; background-color: #7A918D; color:white; font-family: 'Ubuntu', Arial, Helvetica, sans-serif; border-radius: 5%; align-self: start;">Envoyer</button>
+    <input class="ok"type="submit" id='submit' value='Envoyer'>
 </form>

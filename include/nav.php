@@ -63,6 +63,10 @@
         </form>
         <div class="menu-dada">
             <ul>
+            <?php 
+                        if(isset($_SESSION['prenom'])){ ?>
+                            <li><a style="font-size: 12px;"><?php echo "Bonjour, ".$_SESSION['prenom'];
+                         ?></a></li>
 
 
                 <li>
@@ -78,15 +82,43 @@
                 <li>
                     <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
                 </li>
-                <li><a href="catalogue.php">Films</a></li>
-            <?php 
-                        if(isset($_SESSION['username'])){
-                            echo "Bonjour, ".$_SESSION['type'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
-                        } 
-                        else {
-                            echo "<li><a href='include/createaccount.php'>Inscription</a></li>";
-                            echo "<li><a href='connexion.php'>Connexion</a></li>";
-                        }?>
+                <li><a href="catalogue.php" style="font-size: 16px;">Films</a></li>
+                <?php echo "<li><a href='include/deconnexion.php' style='font-size: 16px;'>Se déconnecter</a></li>"; 
+                if ($_SESSION['type'] == 1) { 
+                echo "<li><a href='include/tabadmin.php' style='font-size: 16px;'>Admin</a></li>"; 
+                }
+                else {
+                    echo "<li><a href='include/updateuseraccount.php' style='font-size: 16px;'>Profil</a></li>"; 
+                } ?>
+                        
+            </ul>
+        </div>
+    </div>
+</div>
+                        <?php 
+                        }
+                        else { ?>
+                            <ul>
+
+
+                <li>
+                    <div class="style_axel"><a href="<?php echo $actuel; ?>?style=axel/index4.css"></a>
+                        <div>
+                </li>
+                <li>
+                    <div class="style_pol"><a href="<?php echo $actuel; ?>?style=pol/index2.css"></a></div>
+                </li>
+                <li>
+                    <div class="style_steven"><a href="<?php echo $actuel; ?>?style=steven/index3.css"></a></div>
+                </li>
+                <li>
+                    <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
+                </li>
+                <li><a href="catalogue.php"  style="font-size: 16px;">Films</a></li>
+                <?php 
+                        echo "<li><a href='include/createaccount.php' style='font-size: 16px;'>Inscription</a></li>";
+                        echo "<li><a href='connexion.php' style='font-size: 16px;'>Connexion</a></li>";
+                    }?>
                         
             </ul>
         </div>

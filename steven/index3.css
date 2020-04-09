@@ -167,6 +167,7 @@ transition-duration: 0.3s;
     transition: color 0.4s ease;
     font-family: 'Orbitron', Arial, Helvetica, sans-serif;
     text-align: center;
+    font-size: 12px;
     
 }
 
@@ -703,7 +704,7 @@ transition: 0.2s ease;
      padding-top:15px;
      padding-left:20px;
      padding-right:20px;
-     font-size:20px;
+     font-size:12px;
      font-weight:700;
 }
 
