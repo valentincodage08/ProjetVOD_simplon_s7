@@ -1,8 +1,8 @@
 <?php
-session_start();
+//session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
-include 'connexiondb.php';
+//include 'connexiondb.php';
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ include 'connexiondb.php';
     <?php
     include 'include/nav.php';
     include 'include/slider.php';
-    include 'include/affiche.php';
+    //include 'include/affiche.php';
     include 'include/parallax.php';
     include 'include/tarifs.php';
     include 'include/contact.php';

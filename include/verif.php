@@ -21,15 +21,15 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
 
                     session_start();
                     $_SESSION['username'] = $username;
-                    header('location: ../index.php');
+                    $_SESSION['type'] = $resultat['idusertype'];
+                    header('location: tabadmin.php');
                 }
                 else {
 
                     session_start();
                     $_SESSION['username'] = $username;
+                    $_SESSION['type'] = $resultat['idusertype'];
                     header('location: tabadmin.php');
-                    // Admin à rediriger après sur interface admin
-
                 }
                 
             }

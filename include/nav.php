@@ -81,7 +81,7 @@
                 <li><a href="catalogue.php">Films</a></li>
             <?php 
                         if(isset($_SESSION['username'])){
-                            echo "Bonjour, ".$_SESSION['username'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
+                            echo "Bonjour, ".$_SESSION['type'], " <a href='include/deconnexion.php'>(Se déconnecter)</a>";
                         } 
                         else {
                             echo "<li><a href='include/createaccount.php'>Inscription</a></li>";
