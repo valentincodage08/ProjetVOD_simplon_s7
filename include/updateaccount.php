@@ -1,6 +1,7 @@
 <html>
 <head>
-<link rel="stylesheet" href="styleforms.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
@@ -9,28 +10,50 @@
 session_start();
 include 'connexiondb.php';
 
-$userid = $_GET['id'];?>
+$userid = $_GET['id'];
 
-<div class="container">
-  <form id="contact" action="updateuseraccount.php?id=<?= $userid;?>" method="post">
-    <h3><center>Modification Users</center></h3>
-    <fieldset>
-      <input placeholder="Username" name="username" type="text" tabindex="1" autofocus>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Nom" name="nom" type="text" tabindex="2">
-    </fieldset>
-    <fieldset>
-      <input placeholder="Prénom" name="prenom" type="text" tabindex="3">
-    </fieldset>
-    <fieldset>
-      <input placeholder="Adresse" name="adresse" type="text" tabindex="4">
-    </fieldset>
-    <fieldset>
-      <button type="submit" value="submit">Modifier</button>
-    </fieldset>
-  </form>
-</div>
+$req = $bdd->prepare("SELECT username, nom, prenom, adresse FROM User WHERE id_user = $userid");
+$req->execute();
+
+
+  while ($donnees = $req->fetch())
+{
+
+?>
+
+<h3 class="font-weight-light text-black-50 mt-4 mb-5">
+    <center>Modifier l'utilisateur '<?= $donnees['username'];?></center>
+  </h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+      <form id="contact" action="updateuseraccount.php?id=<?= $userid;?>" method="post">
+          <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <input type="text" class="form-control" name="username" tabindex="1" autofocus value="<?= $donnees['username'];?>">
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" class="form-control" name="nom" tabindex="2" value="<?= $donnees['nom'];?>">
+          </div>
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" class="form-control" name="prenom" tabindex="3" value="<?= $donnees['prenom'];?>">
+          </div>
+          <div class="form-group">
+            <label>Adresse</label>
+            <input type="text" class="form-control" name="adresse" tabindex="4" value="<?= $donnees['adresse'];?>">
+          </div>
+          <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Modifier</button></center>
+          <a href="../index.php"><center><button class="btn btn-outline-secondary mb-5">Annuler</button></center></a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <?php } ?>
 
 </body>
 </html>

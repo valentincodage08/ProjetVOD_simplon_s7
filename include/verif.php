@@ -22,6 +22,7 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
                     session_start();
                     $_SESSION['prenom'] = $resultat['prenom'];
                     $_SESSION['type'] = $resultat['idusertype'];
+                    $_SESSION['id'] = $resultat['id_user'];
                     header('location: ../index.php');
                 }
                 else {

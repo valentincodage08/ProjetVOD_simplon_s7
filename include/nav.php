@@ -87,9 +87,9 @@
                 if ($_SESSION['type'] == 1) { 
                 echo "<li><a href='include/tabadmin.php' style='font-size: 16px;'>Admin</a></li>"; 
                 }
-                else {
-                    echo "<li><a href='include/updateuseraccount.php' style='font-size: 16px;'>Profil</a></li>"; 
-                } ?>
+                else { ?>
+                    <li><a href="include/updateaccount.php?id=<?= $_SESSION['id'];?>" style="font-size: 16px;">Profil</a></li> 
+                <?php } ?>
                         
             </ul>
         </div>
