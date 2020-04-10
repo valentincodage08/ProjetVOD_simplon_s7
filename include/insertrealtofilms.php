@@ -1,3 +1,4 @@
+<?php $idfilm = $_GET['id'] ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,27 +62,27 @@
 
 <body class="bg-light">
     <h3 class="font-weight-light text-black-50 mt-4 mb-5">
-        <center>Ajouter un acteur à ce film</center>
+        <center>Maintenant, ajoutez le réalisateur du film</center>
     </h3>
     <h4 class="font-weight-light text-black-50 mt-4 mb-5">
-        <center>Recommencez autant de fois que nécessaire, une fois terminé cliquez sur suivant</center>
+        <center>Vous pouvez recommencer si plusieurs réalisateurs ont collaboré pour ce film, une fois terminé cliquez sur terminé</center>
     </h4>
     <h4 class="font-weight-light text-black-50 mt-4 mb-5">
-        <center>Choisissez un acteur déjà répertorié</center>
+        <center>Choisissez un réalisateur déjà répertorié</center>
         <div class="container">
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">
-                    <form action="insertacteurstojouetraitement.php?id=<?= $idfilm ?>" method="post">
+                    <form action="insertrealtorealisetraitement.php?id=<?= $idfilm ?>" method="post">
                         <div class="form-group mt-3 mb-3">
-                            <center><label for="exampleFormControlSelect1">Acteurs</label></center>
-                            <select class="form-control" id="exampleFormControlSelect1" name="act">
+                            <center><label for="exampleFormControlSelect1">Réalisateurs</label></center>
+                            <select class="form-control" id="exampleFormControlSelect1" name="real">
                             <?php include 'connexiondb.php';
-                            $req = $bdd->prepare ("SELECT id_acteur, nom, prenom FROM Acteur");
+                            $req = $bdd->prepare ("SELECT realisateur_id, nom, prenom FROM Realisateur");
                             $req->execute();
                             while( $donnees = $req->fetch() ) {
                             ?>
-                                <option value="<?= $donnees['id_acteur'] ?>"><?= $donnees['prenom'] ?> <?= $donnees['nom'] ?></option>
+                                <option value="<?= $donnees['realisateur_id'] ?>"><?= $donnees['prenom'] ?> <?= $donnees['nom'] ?></option>
                             <?php } $req->closecursor(); ?>
                             </select>
                             <center><button type="submit" class="btn btn-outline-secondary mt-5" value="submit">Valider</button>
@@ -93,13 +94,13 @@
         </div>
     </h4>
     <h4 class="font-weight-light text-black-50 mt-4 mb-5">
-        <center>Ou ajoutez un acteur non répertorié à ce film</center>
+        <center>Ou ajoutez un réalisateur non répertorié à ce film</center>
     </h4>
     <div class="container">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-                <form action="insertacteurstofilmstraitement.php?id=<?= $idfilm ?>" method="post">
+                <form action="insertrealtofilmstraitement.php?id=<?= $idfilm ?>" method="post">
                     <div class="form-group">
                         <label>Nom</label>
                         <input type="text" class="form-control" name="nom" tabindex="1" required>
@@ -109,13 +110,17 @@
                         <input type="text" class="form-control" name="prenom" tabindex="2" required>
                     </div>
                     <div class="form-group">
-                        <label>URL de la photo de l'acteur</label>
+                        <label>URL de la photo du réalisateur</label>
                         <input type="text" class="form-control" name="photo" tabindex="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Faites une brève description du réalisateur, son cursus etc</label>
+                        <input type="text" class="form-control" name="description" tabindex="4" required>
                     </div>
                     <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Valider</button>
                     </center>
                 </form>
-                <center><a href="insertrealtofilms.php?id=<?= $idfilm ?>"><button class="btn btn-outline-secondary mb-5">Suivant</button></a>
+                <center><a href="tabadmin.php"><button class="btn btn-outline-secondary mb-5">Terminé</button></a>
                     </center>
             </div>
         </div>

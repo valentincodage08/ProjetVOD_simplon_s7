@@ -64,6 +64,7 @@ $req = $bdd->prepare("SELECT * FROM Film, AfficheFilm WHERE id_film=$filmid AND 
           </div>
           <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Modifier</button></center>
         </form>
+        <center><a href="tabadmin.php"><button class="btn btn-outline-secondary mb-5">Retour</button></a></center>
       </div>
     </div>
   </div>

@@ -167,35 +167,35 @@ $req->closecursor();
         <form action="ajoutfilmadmin.php" method="post">
           <div class="form-group">
             <label>Titre</label>
-            <input type="text" class="form-control" name="titre" tabindex="1">
+            <input type="text" class="form-control" name="titre" tabindex="1" required>
           </div>
           <div class="form-group">
             <label>Synopsis</label>
-            <input type="text" class="form-control" name="synopsis" tabindex="2">
+            <input type="text" class="form-control" name="synopsis" tabindex="2" required>
           </div>
           <div class="form-group">
             <label>Genre</label>
-            <input type="text" class="form-control" name="genre" tabindex="3">
+            <input type="text" class="form-control" name="genre" tabindex="3" required>
           </div>
           <div class="form-group">
             <label>Note</label>
-            <input type="text" class="form-control" name="note" tabindex="4">
+            <input type="text" class="form-control" name="note" tabindex="4" required>
           </div>
           <div class="form-group">
             <label>Durée</label>
-            <input type="time" class="form-control" name="duree" min="00:00" tabindex="5">
+            <input type="time" class="form-control" name="duree" min="00:00" tabindex="5" required>
           </div>
           <div class="form-group">
             <label>URL de l'Affiche du film</label>
-            <input type="text" class="form-control" name="image" tabindex="6">
+            <input type="text" class="form-control" name="image" tabindex="6" required>
           </div>
           <div class="form-group">
             <label>Lien de la bande-annonce YouTube</label>
-            <input type="text" class="form-control" name="ba" tabindex="7">
+            <input type="text" class="form-control" name="ba" tabindex="7" required>
           </div>
           <div class="form-group">
             <label>Date de sortie</label>
-            <input type="text" class="form-control" name="date_sortie" tabindex="8">
+            <input type="text" class="form-control" name="date_sortie" tabindex="8" required>
           </div>
           <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Valider</button></center>
       </div>

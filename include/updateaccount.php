@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-light">
 
 <?php
 
@@ -22,7 +22,7 @@ $req->execute();
 ?>
 
 <h3 class="font-weight-light text-black-50 mt-4 mb-5">
-    <center>Modifier l'utilisateur '<?= $donnees['username'];?></center>
+    <center>Modifier l'utilisateur <?= $donnees['username'];?></center>
   </h3>
 
   <div class="container">
@@ -44,10 +44,10 @@ $req->execute();
           </div>
           <div class="form-group">
             <label>Adresse</label>
-            <input type="text" class="form-control" name="adresse" tabindex="4" value="<?= $donnees['adresse'];?>">
+            <input type="text" class="form-control mb-3" name="adresse" tabindex="4" value="<?= $donnees['adresse'];?>">
           </div>
-          <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Modifier</button></center>
-          <a href="../index.php"><center><button class="btn btn-outline-secondary mb-5">Annuler</button></center></a>
+          <center><button type="submit" class="btn btn-outline-secondary mb-3" value="submit">Modifier</button></center>
+          <a href="../index.php"><center><button class="btn btn-outline-secondary">Annuler</button></center></a>
         </form>
       </div>
     </div>
