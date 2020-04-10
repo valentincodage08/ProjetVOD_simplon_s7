@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'connexiondb.php';
 
@@ -13,5 +14,8 @@ $req = $bdd->prepare(" UPDATE User SET username = '$username', nom = '$nom', pre
         $req->execute();
 
           $req->closecursor();
+
+$_SESSION['prenom'] = $prenom;
+
           header('Location: ../index.php');
 ?>

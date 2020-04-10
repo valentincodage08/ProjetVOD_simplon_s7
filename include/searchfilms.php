@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connexiondb.php';
 
 $searchfilm = $_GET['search'];

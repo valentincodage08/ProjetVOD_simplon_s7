@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connexiondb.php';
 
 $titre = !empty($_POST['titre']) ? $_POST['titre'] : NULL;

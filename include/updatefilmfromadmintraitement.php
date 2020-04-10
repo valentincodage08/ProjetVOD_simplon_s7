@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connexiondb.php';
 
 $afficheid = $_GET['id_aff'];

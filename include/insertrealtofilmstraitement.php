@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connexiondb.php';
 $idfilm = $_GET['id'];
 $nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL;

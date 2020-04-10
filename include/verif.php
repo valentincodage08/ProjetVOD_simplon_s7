@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connexiondb.php';
 
 $username = !empty($_POST['username']) ? $_POST['username'] : NULL;

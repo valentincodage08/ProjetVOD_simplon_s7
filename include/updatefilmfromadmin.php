@@ -6,7 +6,7 @@
 <body>
 
 <?php
-
+session_start();
 include 'connexiondb.php';
 
 $filmid = $_GET['id'];

@@ -1,4 +1,7 @@
-<?php $idfilm = $_GET['id'] ?>
+<?php 
+session_start();
+$idfilm = $_GET['id'] 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
