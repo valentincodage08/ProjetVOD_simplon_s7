@@ -29,6 +29,13 @@ $req->execute();
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">
+      <?php 
+        if(isset($_GET['success'])){
+          if($_GET['success'] == '1') {?>
+            <div class="alert alert-light" role="alert">
+              Votre profil a bien été modifié.
+            </div>
+      <?php }} ?>
       <form id="contact" action="updateuseraccount.php?id=<?= $userid;?>" method="post">
           <div class="form-group">
             <label>Nom d'utilisateur</label>
@@ -47,8 +54,8 @@ $req->execute();
             <input type="text" class="form-control mb-3" name="adresse" tabindex="4" value="<?= $donnees['adresse'];?>">
           </div>
           <center><button type="submit" class="btn btn-outline-secondary mb-3" value="submit">Modifier</button></center>
-          <a href="../index.php"><center><button class="btn btn-outline-secondary">Annuler</button></center></a>
         </form>
+          <a href="../index.php"><center><button class="btn btn-outline-secondary">Retour</button></center></a>
       </div>
     </div>
   </div>

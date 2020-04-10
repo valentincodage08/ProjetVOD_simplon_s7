@@ -8,7 +8,7 @@ session_start();
     $sujet = "Si j'suis là c'est que ça marche";
 
     mail($destinataire, $sujet, $message);
-    header('Location: ../index.php');
+    header('Location: ../index.php?success=1');
     exit;
 
     ?>

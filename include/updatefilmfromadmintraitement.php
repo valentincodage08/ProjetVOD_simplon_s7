@@ -23,5 +23,5 @@ $req = $bdd->prepare(" UPDATE Film SET titre = '$titre', synopsis = '$synopsis',
         $req->execute();
 
           $req->closecursor();
-          header('Location: tabadmin.php');
+          header('Location: tabadmin.php?success=2');
 ?>

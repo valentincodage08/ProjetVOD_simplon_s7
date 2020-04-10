@@ -70,7 +70,16 @@ include 'connexiondb.php';
     <h3 class="font-weight-light text-black-50 mt-4 mb-5">
     <center>Utilisateurs</center>
   </h3>
+
+
   <div class="container mt-2">
+  <?php 
+                if(isset($_GET['success'])){
+                if($_GET['success'] == '1') {?>
+                    <div class="alert alert-secondary" role="alert">
+                    Les données de l'utilisateur viennent d'être modifiées.
+                    </div>
+            <?php }} ?>
     <table class="table">
       <thead class="thead-light">
         <tr>
@@ -115,6 +124,13 @@ $req->closecursor();
     <center>Films</center>
   </h3>
   <div class="container mt-2">
+  <?php 
+                if(isset($_GET['success'])){
+                if($_GET['success'] == '2') {?>
+                    <div class="alert alert-secondary" role="alert">
+                    Les données du film viennent d'être modifiées.
+                    </div>
+            <?php }} ?>
     <table class="table">
       <thead class="thead-light">
         <tr>

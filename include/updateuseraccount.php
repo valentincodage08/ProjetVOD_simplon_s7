@@ -17,5 +17,5 @@ $req = $bdd->prepare(" UPDATE User SET username = '$username', nom = '$nom', pre
 
 $_SESSION['prenom'] = $prenom;
 
-          header('Location: ../index.php');
+          header("Location: updateaccount.php?id=$userid&success=1");
 ?>

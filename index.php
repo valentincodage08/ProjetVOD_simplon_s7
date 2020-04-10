@@ -66,7 +66,7 @@ include 'connexiondb.php';
     <?php
     include 'include/nav.php';
     include 'include/slider.php';
-    //include 'include/affiche.php';
+    include 'include/affiche.php';
     include 'include/parallax.php';
     include 'include/tarifs.php';
     include 'include/contact.php';

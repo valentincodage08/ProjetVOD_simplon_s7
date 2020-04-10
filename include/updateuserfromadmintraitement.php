@@ -13,5 +13,5 @@ $req = $bdd->prepare(" UPDATE User SET username = '$username', nom = '$nom', pre
         $req->execute();
 
           $req->closecursor();
-          header('Location: tabadmin.php');
+          header('Location: tabadmin.php?success=1');
 ?>
