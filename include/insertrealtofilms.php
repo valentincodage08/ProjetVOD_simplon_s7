@@ -123,7 +123,7 @@ $idfilm = $_GET['id']
                     <center><button type="submit" class="btn btn-outline-secondary mb-5" value="submit">Valider</button>
                     </center>
                 </form>
-                <center><a href="tabadmin.php"><button class="btn btn-outline-secondary mb-5">Terminé</button></a>
+                <center><a href="tabadmin.php?success=5"><button class="btn btn-outline-secondary mb-5">Terminé</button></a>
                     </center>
             </div>
         </div>

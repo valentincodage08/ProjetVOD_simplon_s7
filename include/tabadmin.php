@@ -67,6 +67,14 @@ include 'connexiondb.php';
   <h1 class="text-center font-weight-light font-italic text-black-50 mt-4 mb-5">Bienvenue dans votre interface
     Administrateur</h1>
     <center><a href="../index.php" class="text-black-50 mb-5">Revenir à l'accueil</a></center>
+    <div class="container mt-2">
+    <?php if(isset($_GET['success'])){
+                if($_GET['success'] == '5') {?>
+                    <div class="alert alert-secondary" role="alert">
+                    Le film a bien été ajouté.
+                    </div>
+                <?php }} ?>
+                </div>
     <h3 class="font-weight-light text-black-50 mt-4 mb-5">
     <center>Utilisateurs</center>
   </h3>
@@ -79,6 +87,12 @@ include 'connexiondb.php';
                     <div class="alert alert-secondary" role="alert">
                     Les données de l'utilisateur viennent d'être modifiées.
                     </div>
+
+                <?php
+                } elseif($_GET['success'] == '2') {?>
+                  <div class="alert alert-secondary" role="alert">
+                  Vous venez de supprimer un utilisateur.
+                  </div>
             <?php }} ?>
     <table class="table">
       <thead class="thead-light">
@@ -126,10 +140,16 @@ $req->closecursor();
   <div class="container mt-2">
   <?php 
                 if(isset($_GET['success'])){
-                if($_GET['success'] == '2') {?>
+                if($_GET['success'] == '3') {?>
                     <div class="alert alert-secondary" role="alert">
                     Les données du film viennent d'être modifiées.
                     </div>
+                  <?php
+                } elseif($_GET['success'] == '4') {?>
+                  <div class="alert alert-secondary" role="alert">
+                  Vous venez de supprimer un film.
+                  </div>
+                    
             <?php }} ?>
     <table class="table">
       <thead class="thead-light">
@@ -193,6 +213,17 @@ $req->closecursor();
             <label>Genre</label>
             <input type="text" class="form-control" name="genre" tabindex="3" required>
           </div>
+          <label for="exampleFormControlSelect1">Genre</label>
+          <select class="form-control" name="genre" tabindex="3" required>
+            <option>Action</option>
+            <option>Aventure</option>
+            <option>Comédie</option>
+            <option>Drame</option>
+            <option>Horreur</option>
+            <option>Policier</option>
+            <option>Science-Fiction</option>
+            <option>Thriller</option>
+          </select>
           <div class="form-group">
             <label>Note</label>
             <input type="text" class="form-control" name="note" tabindex="4" required>

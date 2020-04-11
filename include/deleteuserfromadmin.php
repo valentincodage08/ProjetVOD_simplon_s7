@@ -8,5 +8,5 @@ $req = $bdd->prepare(" DELETE FROM User WHERE id_user = $userid");
           $req ->execute();
 
           $req->closecursor();
-          header('Location: tabadmin.php');
+          header('Location: tabadmin.php?success=2');
 ?>

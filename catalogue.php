@@ -2,6 +2,8 @@
 session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
+include 'include/connexiondb.php';
+$iduser = $_SESSION['id'];
 ?>
 
 
@@ -46,6 +48,12 @@ require_once 'styleswitcher.php';
     <?php
     include 'include/nav.php';
     include 'include/filtres.php';
+    if(isset($iduser)) {
+        $req = $bdd->prepare("SELECT * FROM Favoris WHERE id_user = $iduser");
+        $req->execute();
+        if($req->rowCount() > 0) {
+            include 'include/filmsfavoris.php';
+        }};
     include 'include/films.php';
     include 'include/paracata.php';
     include 'include/footer.php';

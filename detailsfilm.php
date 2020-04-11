@@ -3,6 +3,7 @@ session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
 include 'include/connexiondb.php';
+$idfilm=$_GET['id'];
 ?>
 
 
@@ -12,7 +13,7 @@ include 'include/connexiondb.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php $req = $bdd->prepare(" SELECT titre FROM Film");
+<?php $req = $bdd->prepare(" SELECT titre FROM Film WHERE id_film = $idfilm");
           $req ->execute();
 
     while( $donnees = $req->fetch() ) { ?>
@@ -54,9 +55,6 @@ include 'include/connexiondb.php';
 <body>
 
 <?php 
-
-        $idfilm=$_GET['id'];
-      
       
         $reqimg=$bdd->prepare("SELECT id_film, image FROM Film, AfficheFilm WHERE id_film=$idfilm AND AfficheFilm.id_affiche = Film.id_affiche");
         $reqimg->execute();

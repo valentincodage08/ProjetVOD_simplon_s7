@@ -32,7 +32,7 @@ $req->execute();
       <?php 
         if(isset($_GET['success'])){
           if($_GET['success'] == '1') {?>
-            <div class="alert alert-light" role="alert">
+            <div class="alert alert-secondary" role="alert">
               Votre profil a bien été modifié.
             </div>
       <?php }} ?>

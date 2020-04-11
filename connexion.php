@@ -50,6 +50,13 @@ include 'include/nav.php'; ?>
 
         <form action="include/verif.php" method="POST">
             <h2>Connexion</h2>
+            <?php 
+                if(isset($_GET['success'])){
+                if($_GET['success'] == '1') {?>
+                    <div class="alert alert-secondary" role="alert">
+                    Ces données ne correspondent à aucun compte enregistré chez nous. Veuillez réessayer ou vous inscrire.
+                    </div>
+            <?php }} ?>
 
             <label><b>Nom d'utilisateur</b></label>
             <input class="login" type="text" placeholder="Nom d'utilisateur" name="username" required> <br>
