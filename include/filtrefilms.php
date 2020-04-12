@@ -11,8 +11,7 @@ $filtre = $_GET['filtre'];?>
 <?php $reqsearch = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche AND Film.genre = '$filtre'");
     $reqsearch -> execute();
 
-    while( $donnees = $reqsearch->fetch() ) {
-        if($donnees){ ?>
+    while( $donnees = $reqsearch->fetch() ) {?>
 
         <a href="detailsfilm.php?id=<?= $donnees['id_film'];?>" class="versfilm">
             <div class="cardaxel"> <img class="poster-img" src="<?= $donnees['image']; ?>" alt="">
@@ -25,7 +24,6 @@ $filtre = $_GET['filtre'];?>
                     </div>
                 </div>
             </div>
-            <?php } $reqsearch->closecursor()?>
+    <?php } $reqsearch->closecursor()?>
         </a>
-        <?php } ?>
 </div>
