@@ -3,16 +3,15 @@ session_start();
 include 'connexiondb.php';
 
 $iduser = $_SESSION['id'];
-$recherche = $_GET['search'];?>
+$filtre = $_GET['filtre'];?>
 
-<h2 class="axeltitreh2">Votre recherche pour <?= $recherche ?></h2>
+<h2 class="axeltitreh2">Votre recherche pour le genre <?= $filtre ?></h2>
 <div class="axeldroite">
 
-<?php $reqsearch = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche AND Film.titre LIKE '$recherche'");
+<?php $reqsearch = $bdd->prepare(" SELECT * FROM Film, AfficheFilm WHERE Film.id_affiche = AfficheFilm.id_affiche AND Film.genre = '$filtre'");
     $reqsearch -> execute();
 
-    while( $donnees = $reqsearch->fetch() ) { 
-        if($donnees){?>
+    while( $donnees = $reqsearch->fetch() ) { ?>
 
         <a href="detailsfilm.php?id=<?= $donnees['id_film'];?>" class="versfilm">
             <div class="cardaxel"> <img class="poster-img" src="<?= $donnees['image']; ?>" alt="">
@@ -27,5 +26,4 @@ $recherche = $_GET['search'];?>
             </div>
             <?php } $reqsearch->closecursor()?>
         </a>
-        <?php } ?>
 </div>

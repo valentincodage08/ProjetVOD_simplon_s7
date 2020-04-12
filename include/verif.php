@@ -36,15 +36,10 @@ $password = !empty($_POST['password']) ? $_POST['password'] : NULL;
             }
             else {
                 header('location: ../connexion.php?success=1');
-                echo "Mot de passe erroné";
-                echo "<a href='../connexion.php'>Retour à l'interface de connexion</a>";
             }
 
         }else {
             header('location: ../connexion.php?success=1');
-            echo "Votre mail n'est pas enregistré";
-            echo "<a href='../connexion.php'>Retour à l'interface de connexion</a>";
-
         }
 
 ?>

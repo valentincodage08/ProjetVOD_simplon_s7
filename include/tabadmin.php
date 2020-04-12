@@ -192,6 +192,51 @@ $req->closecursor();
       </tbody>
     </table>
   </div>
+
+  <h3 class="font-weight-light text-black-50 mt-4 mb-5">
+    <center>Top 10 des Films favoris</center>
+  </h3>
+  <div class="container mt-2">
+  <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Note</th>
+          <th scope="col">Duree</th>
+          <th scope="col">Date de sortie</th>
+          <th scope="col">Classement</th>
+          <th scope="col">Nombre de votes</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <?php
+$req = $bdd->prepare("SELECT * FROM Film, Favoris WHERE Favoris.id_film = Film.id_film");
+    $req->execute();
+
+    while ($donnees = $req->fetch())
+{ ?>
+        <tr>
+          <th scope="row"><?= $donnees['id_film']; ?></th>
+          <td><?= $donnees['titre']; ?></td>
+          <td><?= $donnees['genre']; ?></td>
+          <td><?= $donnees['note']; ?></td>
+          <td><?= $donnees['duree']; ?></td>
+          <td><?= $donnees['date_sortie']; ?></td>
+          <td><?= $donnees['date_sortie']; ?></td>
+          <td><?= $donnees['date_sortie']; ?></td>
+        </tr>
+        <?php
+}
+$req->closecursor();
+?>
+      </tbody>
+    </table>
+  </div>
+
+
   <h3 class="font-weight-light text-black-50 mt-4 mb-5">
     <center>Ajouter un film</center>
   </h3>

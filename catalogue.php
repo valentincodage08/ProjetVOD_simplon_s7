@@ -40,7 +40,6 @@ $iduser = $_SESSION['id'];
 
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-
 </head>
 
 <body>
@@ -54,7 +53,17 @@ $iduser = $_SESSION['id'];
         if($req->rowCount() > 0) {
             include 'include/filmsfavoris.php';
         }};
-    include 'include/films.php';
+
+        if(isset($_GET['search'])){
+
+            include 'include/searchfilms.php';
+        }
+        elseif(isset($_GET['filtre'])) {
+            include 'include/filtrefilms.php';
+        }
+        else {
+            include 'include/films.php';
+        }
     include 'include/paracata.php';
     include 'include/footer.php';
     ?>

@@ -17,7 +17,7 @@ $iduser = $_SESSION['id']; ?>
             <div class="titrefilm"><?= $donnees['titre']; ?></div>
             <div class="infoaxel">
                 <div class="textaxel">
-                    <p><?= $donnees['note']; ?>/5</p>
+                    <p><?= $donnees['note']; ?>/5</i></p>
                     <p><?= $donnees['duree']; ?></p>
                     <p><?= $donnees['genre']; ?></p>
                 </div>
